@@ -13,33 +13,32 @@
 ActiveRecord::Schema.define(version: 20161129133723) do
 
   create_table "comments", force: :cascade do |t|
-    t.string   "commentMessage"
-    t.integer  "commentAuthor"
-    t.integer  "commentTweet"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.string   "message"
+    t.integer  "user_id"
+    t.integer  "tweet_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "follows", force: :cascade do |t|
-    t.integer  "userFollow"
-    t.integer  "userFollowed"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "user_id_follow"
+    t.integer  "user_id_followed"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "tweets", force: :cascade do |t|
-    t.string   "tweetMessage"
-    t.string   "string"
-    t.integer  "tweetAuthor"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "message"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "userName"
-    t.string   "userPassword"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "name"
+    t.string   "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
