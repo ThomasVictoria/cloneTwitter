@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161129133723) do
+ActiveRecord::Schema.define(version: 20161129141811) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "message"
@@ -25,6 +25,24 @@ ActiveRecord::Schema.define(version: 20161129133723) do
     t.integer  "user_id_followed"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "interaction_comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "comment_id"
+    t.boolean  "like",       default: false
+    t.boolean  "retweet",    default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  create_table "interactions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "tweet_id"
+    t.boolean  "like",       default: false
+    t.boolean  "retweet",    default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "tweets", force: :cascade do |t|
